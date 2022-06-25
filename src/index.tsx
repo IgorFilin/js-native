@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {value} from "./01-hello-tests/01.test";
+import {student} from "./02/02";
 
+let b = student
 
-let a = value
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
