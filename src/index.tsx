@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {student} from "./02/02";
 
-let b = student
 
 
 const root = ReactDOM.createRoot(

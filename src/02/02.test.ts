@@ -1,6 +1,6 @@
-import {student} from './02'
+import {addMoneyToBudget, repairHouse, toFireStaff, toHireStaff} from "./02";
 
-type CityType = {
+export type CityType = {
     title: string
     houses: Array<HousesType>
     governmentBuildings: Array<GovernmentBuildingsType>
@@ -102,3 +102,54 @@ test("test city should contains hospital and fire station", () => {
     expect(city.governmentBuildings[1].staffCount).toBe(1000);
     expect(city.governmentBuildings[1].address.street.title).toBe("South Str");
 })
+
+
+
+
+
+
+// 01. создайте в отдельном файле функциюб чтобы тесты прошли
+
+test("Budget should be for changed fot HOSPITAL", () => {
+    addMoneyToBudget(city.governmentBuildings[0], 100000);
+    expect(city.governmentBuildings[0].budget).toBe(300000);
+});
+
+
+// 01. Тест должен пройти
+
+
+test("Budget should be changed for FIRE-STATION", () => {
+    addMoneyToBudget(city.governmentBuildings[1], -100000);
+
+    expect(city.governmentBuildings[1].budget).toBe(400000);
+});
+
+
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+
+
+test("House shoulhd be repared", () => {
+    repairHouse(city.houses[1]);
+    expect(city.houses[1].repaired).toBeTruthy();
+});
+
+
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+
+
+test("staff should be increased", () => {
+    toFireStaff(city.governmentBuildings[0], 20);
+
+    expect(city.governmentBuildings[0].staffCount).toBe(180);
+});
+
+
+// 01. создайте в том же файле еще одну функцию, чтобы тесты прошли
+
+
+test("House sholhd be repared", () => {
+    toHireStaff(city.governmentBuildings[0], 20);
+
+    expect(city.governmentBuildings[0].staffCount).toBe(220);
+});
