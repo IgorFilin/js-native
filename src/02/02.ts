@@ -8,7 +8,7 @@ export const addMoneyToBudget = (governmentBuilding:GovernmentBuildingsType,budg
 }
 
 export const repairHouse = (housesType: HousesType) => {
-    return housesType.repaired = true
+    return housesType.repaired = false
 }
 
 export const toFireStaff = (GovernmentBuil:GovernmentBuildingsType,budget:number) => {
