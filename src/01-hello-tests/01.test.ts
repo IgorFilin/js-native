@@ -12,7 +12,7 @@ beforeEach(() => {
 })
 
 
-test('first test', () => {
+test.skip('first test', () => {
     //Action
     const result = sum(a, b)
     const result2 = multiplication(a, b, c)

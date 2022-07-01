@@ -49,7 +49,7 @@ beforeEach(() => {
     }
 })
 
-test('Add value student', () => {
+test.skip('Add value student', () => {
 
 
     addValueStudent(student, 'NativeJS')
@@ -58,7 +58,7 @@ test('Add value student', () => {
     expect(student.lesson.hometasks[3]).toBe('NativeJS')
 
 })
-test('student stek React active', () => {
+test.skip('student stek React active', () => {
 
 
     stekReactActive(student)
@@ -67,13 +67,13 @@ test('student stek React active', () => {
     expect(student.StekTechnologies.React).toBe(true)
 
 })
-test('student city is true or false', () => {
+test.skip('student city is true or false', () => {
 
     let result = isActiveStudent(student)
 
     expect(result).toBe(true)
 })
-test('Student live city', () => {
+test.skip('Student live city', () => {
 
     let result1 = StudentLiveCity(student,'Tula')
     let result2 = StudentLiveCity(student,'Moscow')
