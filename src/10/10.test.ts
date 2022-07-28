@@ -1,4 +1,12 @@
-import {changeAdressUser, icreaseAge, updateLaptop, UsersLaptopType, UsersTypes} from "./10";
+import {
+    changeAdressUser,
+    icreaseAge,
+    updateLaptop,
+    updateSpecialization,
+    UsersDeveloperType,
+    UsersLaptopType,
+    UsersTypes
+} from "./10";
 
 
 test ('test age user', ()=>{
@@ -57,6 +65,28 @@ test ('test update laptop', ()=>{
     expect(copyUser.laptop).not.toBe(user.laptop)
     expect(copyUser.laptop.name).toBe('Macbook')
     expect(user.laptop.name).toBe('Asus')
+
+
+})
+test ('test create specialization', ()=>{
+    let user:UsersDeveloperType = {
+        name:'Igor',
+        age:28,
+        address:{
+            city:'Tula',
+            house:2
+        },
+        laptop:{name:'Asus'},
+        specialization:{work:'Backend developer'}
+    }
+    const copyUser = updateSpecialization(user,'Frontend developer')
+
+
+    expect(copyUser).not.toBe(user)
+    expect(copyUser.address).toBe(user.address)
+    expect(copyUser.laptop).toBe(user.laptop)
+    expect(copyUser.specialization.work).toBe('Frontend developer')
+    expect(user.specialization.work).toBe('Backend developer')
 
 
 })
