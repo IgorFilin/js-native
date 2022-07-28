@@ -8,6 +8,6 @@ export let user = {
     age:28
 }
 
-export function changeAgeObj (obj) {
+export function changeAgeObj (obj:UserType) {
    obj.age ++
 }
