@@ -26,8 +26,13 @@ type companyType = {
 export type UserCompaniesType = UserBooksType & {
     companies:Array<companyType>
 }
+export type LocalUserCompaniesType =  {
+    companies:Array<companyType>
+}
 
-
+export type CompaniesType = {
+    [name:string]:Array<companyType>
+}
 
 
 
@@ -59,3 +64,8 @@ export const replacementBook = (u:UserBooksType,oldBook:string,newBook:string) =
 export const removeBook = (u:UserBooksType,removeBook:string) => ({...u,books: u.books.filter(book => book !== removeBook)})
 
 export const addCompanies = (u:UserCompaniesType,newCompany:companyType)=> ({...u,companies: [...u.companies,newCompany]})
+
+export const updateCompanies = (u:LocalUserCompaniesType,id:number,title:string )=> ({...u,companies: u.companies.map(c => c.id === id? {...c,title:title}:c)})
+
+export const updateCompanies2 = (companies:CompaniesType,userName:string,id:number,title:string) => ({...companies,[userName]:companies[userName].map(c => c.id === id?{...c,title:title}:c)})
+

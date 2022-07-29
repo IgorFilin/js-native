@@ -1,7 +1,7 @@
 import {
     addBooksForUser, addCompanies,
-    changeAdressUser,
-    icreaseAge, removeBook, replacementBook,
+    changeAdressUser, CompaniesType,
+    icreaseAge, removeBook, replacementBook, updateCompanies, updateCompanies2,
     updateLaptop, updateOtherHouseUser,
     updateSpecialization, UserBooksType, UserCompaniesType,
     UsersDeveloperType,
@@ -223,6 +223,56 @@ test ('add companies where working user', ()=>{
     expect(user.companies.length).toBe(3)
     expect(copyUser.companies.length).toBe(4)
     expect(copyUser.companies[3].title).toBe('Google')
+
+
+
+})
+test ('update company for user', ()=>{
+    let user:UserCompaniesType = {
+        name:'Igor',
+        age:28,
+        address:{
+            city:'Tula',
+            house:2
+        },
+        laptop:{name:'Asus'},
+        specialization:{work:'Backend developer'},
+        books:['html','css','js','react'],
+        companies:[{id:1,title:'Esam'},{id:2,title:'Yandex'},{id:3,title:'IT-INCUBATOR'}]
+    }
+     const copyUser = updateCompanies(user,1,'EPAM') as UserCompaniesType
+
+
+    expect(copyUser).not.toBe(user)
+    expect(copyUser.address).toBe(user.address)
+    expect(copyUser.laptop).toBe(user.laptop)
+    expect(copyUser.specialization).toBe(user.specialization)
+    expect(copyUser.books).toBe(user.books)
+    expect(copyUser.companies).not.toBe(user.companies)
+    expect(user.companies.length).toBe(3)
+    expect(copyUser.companies.length).toBe(3)
+    expect(copyUser.companies[0].title).toBe('EPAM')
+
+
+
+})
+test ('update company for user', ()=>{
+
+
+    const companies:CompaniesType = {
+       'Sasha':[{id:1,title:'Esam'},{id:2,title:'Yandex'},{id:3,title:'IT-INCUBATOR'}],
+       'Vitya':[{id:1,title:'Esam'},{id:3,title:'IT-INCUBATOR'}]
+       }
+
+
+    const copyCompanies = updateCompanies2(companies,'Sasha',1,'Google')
+
+
+    expect(companies).not.toBe(copyCompanies)
+    expect(companies['Vitya']).toBe(copyCompanies['Vitya'])
+    expect(companies['Sasha']).not.toBe(copyCompanies['Sasha'])
+    expect(companies['Sasha'][0].title).toBe('Google')
+
 
 
 
